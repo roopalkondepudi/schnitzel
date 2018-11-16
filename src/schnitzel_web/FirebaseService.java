@@ -6,7 +6,7 @@ import javax.ws.rs.*;
 
 public class FirebaseService
 {  
-	@POST @Path("/firebase/") @Produces("text/plain")
+	@POST @Path("/firebase") @Produces("text/plain")
 	public String initializeFirebase()
 	{
 		return "hello";
