@@ -14,7 +14,11 @@ public class ScoreService {
 	public int getTies() {return Score.TIES;}
 	
 	@POST @Path("/score/wins")@Produces("text/plain")
+<<<<<<< HEAD
 	public int increaseWins() { return Score.WINS++; }
+=======
+	public int increaseWins() { return Score.WINS+=10; }
+>>>>>>> 963030379d345cfb7ba9e8f0e08a6accf4a914fb
 	     
 	@POST @Path("/score/ties")@Produces("text/plain")      
 	public int increaseTies() { return Score.TIES+=10;}
@@ -29,7 +33,11 @@ public class ScoreService {
 	   String pattern = 
 	      "{ \"wins\":\"%s\", \"losses\":\"%s\", \"ties\": \"%s\"}";
 	   return String.format(pattern,  Score.WINS, Score.LOSSES, Score.TIES );   
+<<<<<<< HEAD
 	} 
+=======
+	}
+>>>>>>> 963030379d345cfb7ba9e8f0e08a6accf4a914fb
 	 
 	@PUT
 	@Path("/score")
