@@ -14,7 +14,7 @@ public class ScoreService {
 	public int getTies() {return Score.TIES;}
 	
 	@POST @Path("/score/wins")@Produces("text/plain")
-	public int increaseWins() { return Score.WINS++; }
+	public int increaseWins() { return Score.WINS+=10; }
 	     
 	@POST @Path("/score/ties")@Produces("text/plain")      
 	public int increaseTies() { return Score.TIES+=10;}
