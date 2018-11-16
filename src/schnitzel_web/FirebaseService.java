@@ -6,10 +6,10 @@ import javax.ws.rs.*;
 
 public class FirebaseService
 {  
-	@POST @Path("/score/firebase") @Produces("text/plain")
-	public int initializeFirebase()
+	@GET @Path("/score/firebase") @Produces("text/plain")
+	public String initializeFirebase()
 	{
-		return 100;
+		return "hello";
 	}
 	
 	@GET @Path("/score/wins")@Produces("text/plain")
