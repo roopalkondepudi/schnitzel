@@ -1,9 +1,17 @@
 package schnitzel_web;
 
 import javax.ws.rs.*;
-@Path("/ScoreService") 
 
-public class ScoreService {  
+@Path("/FirebaseService") 
+
+public class FirebaseService
+{  
+	@PUT @Path("/firebase/initialize")@Produces("application/json")
+	public String initializeFirebase()
+	{
+		return "hello";
+	}
+	
 	@GET @Path("/score/wins")@Produces("text/plain")
 	public int getWins() {return Score.WINS;}
 	     
@@ -14,11 +22,7 @@ public class ScoreService {
 	public int getTies() {return Score.TIES;}
 	
 	@POST @Path("/score/wins")@Produces("text/plain")
-<<<<<<< HEAD
-	public int increaseWins() { return Score.WINS++; }
-=======
 	public int increaseWins() { return Score.WINS+=10; }
->>>>>>> 963030379d345cfb7ba9e8f0e08a6accf4a914fb
 	     
 	@POST @Path("/score/ties")@Produces("text/plain")      
 	public int increaseTies() { return Score.TIES+=10;}
@@ -32,12 +36,8 @@ public class ScoreService {
 	public String getScore() {
 	   String pattern = 
 	      "{ \"wins\":\"%s\", \"losses\":\"%s\", \"ties\": \"%s\"}";
-	   return String.format(pattern,  Score.WINS, Score.LOSSES, Score.TIES );   
-<<<<<<< HEAD
-	} 
-=======
+	   return String.format(pattern,  Score.WINS, Score.LOSSES, Score.TIES );
 	}
->>>>>>> 963030379d345cfb7ba9e8f0e08a6accf4a914fb
 	 
 	@PUT
 	@Path("/score")
