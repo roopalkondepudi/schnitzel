@@ -6,7 +6,7 @@ import javax.ws.rs.*;
 
 public class FirebaseService
 {  
-	@PUT @Path("/firebase/initialize")@Produces("application/json")
+	@PUT @Path("/firebase/")@Produces("application/json")
 	public String initializeFirebase()
 	{
 		return "hello";
