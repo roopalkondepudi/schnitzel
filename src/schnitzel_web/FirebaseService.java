@@ -7,9 +7,9 @@ import javax.ws.rs.*;
 public class FirebaseService
 {  
 	@POST @Path("/score/firebase") @Produces("text/plain")
-	public String initializeFirebase()
+	public int initializeFirebase()
 	{
-		return "hello";
+		return 100;
 	}
 	
 	@GET @Path("/score/wins")@Produces("text/plain")
