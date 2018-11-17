@@ -17,6 +17,7 @@ public class FirebaseService
 	@GET @Path("/firebase") @Produces("text/plain")
 	public String initializeFirebase()
 	{
+		String returned = "";
 		FirebaseOptions options;		
 		try
 		{
@@ -28,20 +29,22 @@ public class FirebaseService
 				    .build();
 				FirebaseApp.initializeApp(options);
 				
-			return "firebase successfully initialized.";
+			returned= "firebase successfully initialized.";
 			
 		}
 		catch (FileNotFoundException ex)
 		{
 			System.out.println("fnfe thrown");
 			ex.printStackTrace();
+			returned= "firebase initialization failed";
 		}
 		catch (IOException e)
 		{
 			System.out.println("ioe thrown");
 			e.printStackTrace();
+			returned= "firebase initialization failed";
 		}
-		return "firebase initialization failed";
+		return returned;
 	}
 	
 	@GET @Path("/score/wins")@Produces("text/plain")
