@@ -14,10 +14,9 @@ import com.google.firebase.FirebaseOptions;
 
 public class FirebaseService
 {  
-	@GET @Path("/firebase") @Produces("text/plain")
+	@POST @Path("/firebase") @Produces("text/plain")
 	public String initializeFirebase()
 	{
-		String returned = "";
 		FirebaseOptions options;		
 		try
 		{
@@ -27,24 +26,18 @@ public class FirebaseService
 				    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
 				    .setDatabaseUrl("https://schnitzeljagd-9a293.firebaseio.com/")
 				    .build();
-				FirebaseApp.initializeApp(options);
-				
-			returned= "firebase successfully initialized.";
-			
+				FirebaseApp.initializeApp(options);			
 		}
 		catch (FileNotFoundException ex)
 		{
 			System.out.println("fnfe thrown");
 			ex.printStackTrace();
-			returned = ex.getStackTrace().toString();
 		}
 		catch (IOException e)
 		{
 			System.out.println("ioe thrown");
 			e.printStackTrace();
-			returned= e.getMessage();
 		}
-		return returned;
 	}
 	
 	@GET @Path("/score/wins")@Produces("text/plain")
