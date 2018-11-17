@@ -15,7 +15,7 @@ import com.google.firebase.FirebaseOptions;
 public class FirebaseService
 {  
 	@POST @Path("/firebase") @Produces("text/plain")
-	public String initializeFirebase()
+	public void initializeFirebase()
 	{
 		FirebaseOptions options;		
 		try
