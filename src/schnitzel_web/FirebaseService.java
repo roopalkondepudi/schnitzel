@@ -36,13 +36,13 @@ public class FirebaseService
 		{
 			System.out.println("fnfe thrown");
 			ex.printStackTrace();
-			returned= "firebase initialization failed";
+			returned = ex.getStackTrace().toString();
 		}
 		catch (IOException e)
 		{
 			System.out.println("ioe thrown");
 			e.printStackTrace();
-			returned= "firebase initialization failed";
+			returned= e.getMessage();
 		}
 		return returned;
 	}
