@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 963030379d345cfb7ba9e8f0e08a6accf4a914fb
+Manifest-Version: 1.0
+Created-By: Apache Maven 3.6.0
+Built-By: priyank
+Build-Jdk: 10.0.1
+
+<<<<<<< HEAD
+=======
+=======
+Manifest-Version: 1.0
+Created-By: Apache Maven 3.6.0
+Built-By: priyank
+Build-Jdk: 10.0.1
+
+>>>>>>> dfcb2c9c2441bc8c84769dc4bfa977325658d878
+>>>>>>> 963030379d345cfb7ba9e8f0e08a6accf4a914fb
