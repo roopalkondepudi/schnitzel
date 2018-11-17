@@ -15,7 +15,7 @@ import com.google.firebase.FirebaseOptions;
 public class FirebaseService
 {  
 	@POST @Path("/firebase") @Produces("text/plain")
-	public void initializeFirebase()
+	public String initializeFirebase()
 	{
 		FirebaseOptions options;		
 		try
@@ -26,7 +26,8 @@ public class FirebaseService
 				    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
 				    .setDatabaseUrl("https://schnitzeljagd-9a293.firebaseio.com/")
 				    .build();
-				FirebaseApp.initializeApp(options);			
+				FirebaseApp.initializeApp(options);	
+			return "firebase initialized successfully";
 		}
 		catch (FileNotFoundException ex)
 		{
@@ -38,6 +39,7 @@ public class FirebaseService
 			System.out.println("ioe thrown");
 			e.printStackTrace();
 		}
+		return "firebase intialization failure.";
 	}
 	
 	@GET @Path("/score/wins")@Produces("text/plain")
