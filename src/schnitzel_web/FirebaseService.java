@@ -173,6 +173,12 @@ public class FirebaseService
 		hunt_map.put("test_hunt", hunt);
 		checkpoint_ref.setValueAsync(hunt_map);	
 		
+		try {
+			Thread.sleep(2);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String ret = checkpoints.get(0).getHint() + ", " + checkpoints.get(1).getHint() + ", " + checkpoints.get(2).getHint();
 		return ret;
 	}
