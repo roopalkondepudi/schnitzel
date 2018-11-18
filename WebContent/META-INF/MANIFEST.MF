@@ -3,7 +3,19 @@ Manifest-Version: 1.0
 Class-Path: 
 
 =======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+Manifest-Version: 1.0
+Class-Path: 
+
+=======
+>>>>>>> ac3e2f337e4540ebb52e81fb3208f7eb867e3c71
 Manifest-Version: 1.0
 Class-Path: 
 
 >>>>>>> dfcb2c9c2441bc8c84769dc4bfa977325658d878
+<<<<<<< HEAD
+=======
+>>>>>>> 963030379d345cfb7ba9e8f0e08a6accf4a914fb
+>>>>>>> ac3e2f337e4540ebb52e81fb3208f7eb867e3c71

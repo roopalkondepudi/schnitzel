@@ -47,10 +47,13 @@
 	    <artifactId>javaee-web-api</artifactId>
 	    <version>6.0</version>
     <scope>provided</scope></dependency>
+<<<<<<< HEAD
     <dependency>
 	    <groupId>com.google.firebase</groupId>
 	    <artifactId>firebase-admin</artifactId>
 	    <version>6.5.0</version>
 	</dependency>
+=======
+>>>>>>> ac3e2f337e4540ebb52e81fb3208f7eb867e3c71
 </dependencies>
 </project>

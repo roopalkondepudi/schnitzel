@@ -1,5 +1,27 @@
+<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: sambu
 Build-Jdk: 1.8.0_181
 Created-By: Maven Integration for Eclipse
 
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 963030379d345cfb7ba9e8f0e08a6accf4a914fb
+Manifest-Version: 1.0
+Built-By: priyank
+Build-Jdk: 10.0.1
+Created-By: Maven Integration for Eclipse
+
+<<<<<<< HEAD
+=======
+=======
+Manifest-Version: 1.0
+Built-By: priyank
+Build-Jdk: 10.0.1
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> dfcb2c9c2441bc8c84769dc4bfa977325658d878
+>>>>>>> 963030379d345cfb7ba9e8f0e08a6accf4a914fb
+>>>>>>> ac3e2f337e4540ebb52e81fb3208f7eb867e3c71
