@@ -3,6 +3,7 @@ package schnitzel_web;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
@@ -23,6 +24,8 @@ import com.google.firebase.database.ValueEventListener;
 public class FirebaseService
 {  
 	String profileInfo = "";
+	String allCheckpointInfo = "";
+	
 	@POST @Path("/firebase")@Produces("text/plain")
 	public String initializeFirebase()
 	{
@@ -70,7 +73,7 @@ public class FirebaseService
 
 			@Override
 			public void onCancelled(DatabaseError error) {
-				System.out.println("There was a problem");
+				System.out.println("There was a problem in getting the profile information.");
 			}
 		});
 		
@@ -95,11 +98,76 @@ public class FirebaseService
 		usersRef.updateChildrenAsync(userUpdates);
 	}
 
-	@GET @Path("/score/ties")@Produces("text/plain")
-	public int getTies() {return Score.TIES;}
+	@GET @Path("/huntInfo")@Produces("text/plain")
+	public String getAllCheckpoints(String huntname)
+	{		
+		// read user class from database
+		final CountDownLatch done = new CountDownLatch(1);
+
+		DatabaseReference ref = FirebaseDatabase.getInstance().getReference("hunts/" + huntname + "/checkpoints");
+		
+		ref.addListenerForSingleValueEvent((ValueEventListener) new ValueEventListener() {
+			  @Override
+			  public void onDataChange(DataSnapshot snapshot) {
+				  for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+					  Checkpoint checkpoint = postSnapshot.getValue(Checkpoint.class);
+			          allCheckpointInfo += checkpoint.receiveCheckpointInfo() +"| ";
+			      }
+			      done.countDown();
+			  }
+
+			  @Override
+			  public void onCancelled(DatabaseError error) {
+				  System.out.println("There was a problem in getting the checkpoints.");
+			  }
+			});
+			
+		try {
+			done.await(); //it will wait till the response is received from firebase.
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} 
+		return allCheckpointInfo;
+	}
 	
-	@POST @Path("/score/wins")@Produces("text/plain")
-	public int increaseWins() { return Score.WINS+=10; }
+	@PUT @Path("/huntInfo/addCheckpoint")@Produces("text/plain")
+	public void addTestCheckpoint()
+	{
+		DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+		
+		DatabaseReference checkpoint_ref = db.child("hunts");
+		Checkpoint h1 = new Checkpoint();
+		h1.setLat(1.0);
+		h1.setLon(2.0);
+		h1.setThreshold(2.4);
+		h1.setProgress(43.64);
+		
+		Checkpoint h2 = new Checkpoint();
+		h2.setLat(4.2);
+		h2.setLon(2.5);
+		h2.setThreshold(2.9);
+		h2.setProgress(4.4);
+		
+		Checkpoint h3 = new Checkpoint();
+		h3.setLat(4.67);
+		h3.setLon(9.0);
+		h3.setThreshold(86.64);
+		h3.setProgress(3.5);
+		
+		ArrayList<Checkpoint> checkpointList = new ArrayList<Checkpoint>();
+		checkpointList.add(h1);
+		checkpointList.add(h2);
+		checkpointList.add(h3);
+		
+		Hunt hunt = new Hunt();
+		hunt.setCheckpointList(checkpointList);		
+		
+		Map<String, Hunt> hunt_map = new HashMap<>();
+		hunt_map.put("test_hunt", hunt);
+		checkpoint_ref.setValueAsync(hunt_map);	
+		
+		System.out.println("all checkpoints: " + getAllCheckpoints("test_hunt"));
+	}
 	     
 	@POST @Path("/score/ties")@Produces("text/plain")      
 	public int increaseTies() { return Score.TIES+=10;}
