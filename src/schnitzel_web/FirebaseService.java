@@ -170,7 +170,7 @@ public class FirebaseService
 		hunt_map.put("test_hunt", hunt);
 		checkpoint_ref.setValueAsync(hunt_map);	
 		
-		return "checkpoints added.";
+		return checkpoints.toString();
 	}
 	     
 	@POST @Path("/score/ties")@Produces("text/plain")      
