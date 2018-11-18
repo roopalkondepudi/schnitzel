@@ -83,7 +83,7 @@ public class FirebaseService
 	}
 	
 	@PUT @Path("/adduser")@Produces("text/plain")
-	public String addUser(@QueryParam("name") String name, @QueryParam("photo") String photo)
+	public void addUser(@QueryParam("name") String name, @QueryParam("photo") String photo)
 	{			
 		User user = new User();
 		user.setName(name);
@@ -93,8 +93,6 @@ public class FirebaseService
 		Map<String, Object> userUpdates = new HashMap<>();
 		userUpdates.put(user.getName(), user);
 		usersRef.updateChildrenAsync(userUpdates);
-		
-		return photo;
 	}
 
 	@GET @Path("/score/ties")@Produces("text/plain")
