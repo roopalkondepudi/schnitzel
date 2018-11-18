@@ -145,18 +145,21 @@ public class FirebaseService
 		h1.setLon(2.0);
 		h1.setThreshold(2.4);
 		h1.setProgress(43.64);
+		h1.setHint("1");
 		
 		Checkpoint h2 = new Checkpoint();
 		h2.setLat(4.2);
 		h2.setLon(2.5);
 		h2.setThreshold(2.9);
 		h2.setProgress(4.4);
+		h2.setHint("2");
 		
 		Checkpoint h3 = new Checkpoint();
 		h3.setLat(4.67);
 		h3.setLon(9.0);
 		h3.setThreshold(86.64);
 		h3.setProgress(3.5);
+		h3.setHint("3");
 		
 		ArrayList<Checkpoint> checkpoints = new ArrayList<Checkpoint>();
 		checkpoints.add(h1);
@@ -170,7 +173,7 @@ public class FirebaseService
 		hunt_map.put("test_hunt", hunt);
 		checkpoint_ref.setValueAsync(hunt_map);	
 		
-		return checkpoints.toString();
+		String ret = checkpoints.get(0).getHint() + ", " + checkpoints.get(1).getHint() + ", " + checkpoints.get(2).getHint();
 	}
 	     
 	@POST @Path("/score/ties")@Produces("text/plain")      
