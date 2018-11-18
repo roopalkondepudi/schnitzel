@@ -18,11 +18,6 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_181">
-		<attributes>
-			<attribute name="owner.project.facets" value="java"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="lib/aopalliance-repackaged-2.5.0-b42.jar"/>
 	<classpathentry kind="lib" path="lib/api-common-1.7.0.jar"/>
 	<classpathentry kind="lib" path="lib/auto-value-1.4.jar"/>
