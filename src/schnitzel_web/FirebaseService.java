@@ -174,6 +174,7 @@ public class FirebaseService
 		checkpoint_ref.setValueAsync(hunt_map);	
 		
 		String ret = checkpoints.get(0).getHint() + ", " + checkpoints.get(1).getHint() + ", " + checkpoints.get(2).getHint();
+		return ret;
 	}
 	     
 	@POST @Path("/score/ties")@Produces("text/plain")      
