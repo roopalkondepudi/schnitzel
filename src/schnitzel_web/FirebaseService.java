@@ -58,7 +58,7 @@ public class FirebaseService
 		DatabaseReference ref = FirebaseDatabase.getInstance()
 			    .getReference("users/" + username);
 		
-		CountDownLatch done = new CountDownLatch(1);
+		final CountDownLatch done = new CountDownLatch(1);
 		ref.addListenerForSingleValueEvent((ValueEventListener) new ValueEventListener()
 		{
 			@Override
