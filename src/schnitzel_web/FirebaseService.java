@@ -14,17 +14,10 @@ import com.google.firebase.FirebaseOptions;
 
 public class FirebaseService
 {  
-<<<<<<< HEAD
 	@POST @Path("firebase") @Produces("application/json")
 	public String initializeFirebase()
 	{
-		FirebaseOptions options;
-=======
-	@POST @Path("/firebase") @Produces("text/plain")
-	public String initializeFirebase()
-	{
 		FirebaseOptions options;		
->>>>>>> ac3e2f337e4540ebb52e81fb3208f7eb867e3c71
 		try
 		{
 			FileInputStream serviceAccount = new FileInputStream("schnitzeljagd-9a293-firebase-adminsdk-t2x2r-b2534d086e.json");
@@ -33,13 +26,8 @@ public class FirebaseService
 				    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
 				    .setDatabaseUrl("https://schnitzeljagd-9a293.firebaseio.com/")
 				    .build();
-<<<<<<< HEAD
 				FirebaseApp.initializeApp(options);
 			return "firebase initialization success!";
-=======
-				FirebaseApp.initializeApp(options);	
-			return "firebase initialized successfully";
->>>>>>> ac3e2f337e4540ebb52e81fb3208f7eb867e3c71
 		}
 		catch (FileNotFoundException ex)
 		{
@@ -50,13 +38,8 @@ public class FirebaseService
 		{
 			System.out.println("ioe thrown");
 			e.printStackTrace();
-		}
-<<<<<<< HEAD
-		
+		}		
 		return "firebase initialization failure";
-=======
-		return "firebase intialization failure.";
->>>>>>> ac3e2f337e4540ebb52e81fb3208f7eb867e3c71
 	}
 	
 	@GET @Path("/score/wins")@Produces("text/plain")
@@ -83,11 +66,7 @@ public class FirebaseService
 	public String getScore() {
 	   String pattern = 
 	      "{ \"wins\":\"%s\", \"losses\":\"%s\", \"ties\": \"%s\"}";
-<<<<<<< HEAD
-	   return String.format(pattern,  Score.WINS, Score.LOSSES, Score.TIES );   
-=======
 	   return String.format(pattern,  Score.WINS, Score.LOSSES, Score.TIES );
->>>>>>> ac3e2f337e4540ebb52e81fb3208f7eb867e3c71
 	}
 	 
 	@PUT
