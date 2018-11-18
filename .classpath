@@ -28,13 +28,51 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/schnitzeljagd/lib/firebase-admin-6.5.0.jar"/>
 	<classpathentry kind="lib" path="lib/aopalliance-repackaged-2.5.0-b42.jar"/>
+	<classpathentry kind="lib" path="lib/api-common-1.7.0.jar"/>
+	<classpathentry kind="lib" path="lib/auto-value-1.4.jar"/>
 	<classpathentry kind="lib" path="lib/cdi-api-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="lib/el-api-2.2.jar"/>
+	<classpathentry kind="lib" path="lib/error_prone_annotations-2.1.2.jar"/>
+	<classpathentry kind="lib" path="lib/firebase-admin-6.5.0.jar"/>
+	<classpathentry kind="lib" path="lib/gax-1.30.0.jar"/>
+	<classpathentry kind="lib" path="lib/gax-grpc-1.30.0.jar"/>
+	<classpathentry kind="lib" path="lib/gax-httpjson-0.47.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-api-client-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-api-client-gson-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-api-services-storage-v1-rev135-1.24.1.jar"/>
+	<classpathentry kind="lib" path="lib/google-auth-library-credentials-0.11.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-auth-library-oauth2-http-0.11.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-cloud-core-1.43.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-cloud-core-grpc-1.43.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-cloud-core-http-1.43.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-cloud-firestore-0.61.0-beta.jar"/>
+	<classpathentry kind="lib" path="lib/google-cloud-storage-1.43.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-http-client-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-http-client-appengine-1.24.1.jar"/>
+	<classpathentry kind="lib" path="lib/google-http-client-gson-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-http-client-jackson-1.24.1.jar"/>
+	<classpathentry kind="lib" path="lib/google-http-client-jackson2-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-oauth-client-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/grpc-auth-1.13.1.jar"/>
+	<classpathentry kind="lib" path="lib/grpc-context-1.13.1.jar"/>
+	<classpathentry kind="lib" path="lib/grpc-core-1.13.1.jar"/>
+	<classpathentry kind="lib" path="lib/grpc-netty-shaded-1.13.1.jar"/>
+	<classpathentry kind="lib" path="lib/grpc-protobuf-1.13.1.jar"/>
+	<classpathentry kind="lib" path="lib/grpc-protobuf-lite-1.13.1.jar"/>
+	<classpathentry kind="lib" path="lib/grpc-stub-1.13.1.jar"/>
+	<classpathentry kind="lib" path="lib/gson-2.1.jar"/>
+	<classpathentry kind="lib" path="lib/guava-20.0.jar"/>
 	<classpathentry kind="lib" path="lib/hk2-api-2.5.0-b42.jar"/>
 	<classpathentry kind="lib" path="lib/hk2-locator-2.5.0-b42.jar"/>
 	<classpathentry kind="lib" path="lib/hk2-utils-2.5.0-b42.jar"/>
+	<classpathentry kind="lib" path="lib/httpclient-4.5.5.jar"/>
+	<classpathentry kind="lib" path="lib/httpcore-4.4.9.jar"/>
+	<classpathentry kind="lib" path="lib/j2objc-annotations-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.9.6.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-asl-1.9.11.jar"/>
 	<classpathentry kind="lib" path="lib/javassist-3.22.0-CR2.jar"/>
 	<classpathentry kind="lib" path="lib/javax.annotation-api-1.2.jar"/>
 	<classpathentry kind="lib" path="lib/javax.inject-1.jar"/>
@@ -43,6 +81,7 @@
 	<classpathentry kind="lib" path="lib/javax.json-1.1.jar"/>
 	<classpathentry kind="lib" path="lib/javax.json-api-1.1.jar"/>
 	<classpathentry kind="lib" path="lib/javax.servlet-api-3.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/javax.ws.rs-api-2.0.jar"/>
 	<classpathentry kind="lib" path="lib/javax.ws.rs-api-2.1.jar"/>
 	<classpathentry kind="lib" path="lib/jaxb-api-2.2.7.jar"/>
 	<classpathentry kind="lib" path="lib/jboss-interceptors-api_1.1_spec-1.0.0.Beta1.jar"/>
@@ -55,10 +94,32 @@
 	<classpathentry kind="lib" path="lib/jersey-media-json-binding.jar"/>
 	<classpathentry kind="lib" path="lib/jersey-media-sse.jar"/>
 	<classpathentry kind="lib" path="lib/jersey-server.jar"/>
+	<classpathentry kind="lib" path="lib/joda-time-2.9.2.jar"/>
+	<classpathentry kind="lib" path="lib/json-20160810.jar"/>
 	<classpathentry kind="lib" path="lib/jsr250-api-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/jsr305-3.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/netty-buffer-4.1.22.Final.jar"/>
+	<classpathentry kind="lib" path="lib/netty-codec-4.1.22.Final.jar"/>
+	<classpathentry kind="lib" path="lib/netty-codec-http-4.1.22.Final.jar"/>
+	<classpathentry kind="lib" path="lib/netty-common-4.1.22.Final.jar"/>
+	<classpathentry kind="lib" path="lib/netty-handler-4.1.22.Final.jar"/>
+	<classpathentry kind="lib" path="lib/netty-resolver-4.1.22.Final.jar"/>
+	<classpathentry kind="lib" path="lib/netty-transport-4.1.22.Final.jar"/>
+	<classpathentry kind="lib" path="lib/opencensus-api-0.15.0.jar"/>
+	<classpathentry kind="lib" path="lib/opencensus-contrib-grpc-metrics-0.12.3.jar"/>
+	<classpathentry kind="lib" path="lib/opencensus-contrib-grpc-util-0.15.0.jar"/>
+	<classpathentry kind="lib" path="lib/opencensus-contrib-http-util-0.15.0.jar"/>
 	<classpathentry kind="lib" path="lib/org.osgi.core-4.2.0.jar"/>
 	<classpathentry kind="lib" path="lib/osgi-resource-locator-1.0.1.jar"/>
 	<classpathentry kind="lib" path="lib/persistence-api-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/protobuf-java-3.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/protobuf-java-util-3.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/proto-google-cloud-firestore-v1beta1-0.26.0.jar"/>
+	<classpathentry kind="lib" path="lib/proto-google-common-protos-1.12.0.jar"/>
+	<classpathentry kind="lib" path="lib/proto-google-iam-v1-0.12.0.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.7.25.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-simple-1.7.25.jar"/>
+	<classpathentry kind="lib" path="lib/threetenbp-1.3.3.jar"/>
 	<classpathentry kind="lib" path="lib/validation-api-1.1.0.Final.jar"/>
 	<classpathentry kind="lib" path="lib/yasson-1.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>

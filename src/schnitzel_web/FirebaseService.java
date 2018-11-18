@@ -1,6 +1,14 @@
 package schnitzel_web;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import javax.ws.rs.*;
+
+import com.google.auth.oauth2.GoogleCredentials;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
 
 @Path("/FirebaseService") 
 
@@ -9,7 +17,29 @@ public class FirebaseService
 	@POST @Path("/firebase")@Produces("text/plain")
 	public String initializeFirebase()
 	{
-		return "in firebase initialization.";
+		FirebaseOptions options;
+		try
+		{
+			FileInputStream serviceAccount = new FileInputStream("schnitzeljagd-9a293-firebase-adminsdk-t2x2r-b2534d086e.json");
+		
+			options = new FirebaseOptions.Builder()
+				    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+				    .setDatabaseUrl("https://schnitzeljagd-9a293.firebaseio.com/")
+				    .build();
+				FirebaseApp.initializeApp(options);
+			return "firebase initialization success!";
+		}
+		catch (FileNotFoundException ex)
+		{
+			System.out.println("fnfe thrown");
+			ex.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			System.out.println("ioe thrown");
+			e.printStackTrace();
+		}
+		return "firebase initialization failure.";
 	}
 
 	@GET @Path("/score/wins")@Produces("text/plain")
