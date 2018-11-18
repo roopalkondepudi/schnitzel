@@ -135,7 +135,7 @@ public class FirebaseService
 	}
 	
 	@PUT @Path("/huntInfo/addCheckpoint")@Produces("text/plain")
-	public void addTestCheckpoint()
+	public String addTestCheckpoint()
 	{
 		DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 		
@@ -170,7 +170,7 @@ public class FirebaseService
 		hunt_map.put("test_hunt", hunt);
 		checkpoint_ref.setValueAsync(hunt_map);	
 		
-		System.out.println("all checkpoints: " + getAllCheckpoints("test_hunt"));
+		return "checkpoints added.";
 	}
 	     
 	@POST @Path("/score/ties")@Produces("text/plain")      
