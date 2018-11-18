@@ -94,7 +94,7 @@ public class FirebaseService
 		userUpdates.put(user.getName(), user);
 		usersRef.updateChildrenAsync(userUpdates);
 		
-		return "user added";
+		return user.getPhoto();
 	}
 
 	@GET @Path("/score/ties")@Produces("text/plain")
