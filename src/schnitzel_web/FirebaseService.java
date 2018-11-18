@@ -14,7 +14,7 @@ import com.google.firebase.FirebaseOptions;
 
 public class FirebaseService
 {  
-	@POST @Path("firebase") @Produces("application/json")
+	@POST @Path("/firebase") @Produces("application/json")
 	public String initializeFirebase()
 	{
 		FirebaseOptions options;		
