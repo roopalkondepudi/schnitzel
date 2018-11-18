@@ -84,9 +84,7 @@ public class FirebaseService
 	
 	@PUT @Path("/adduser")@Produces("text/plain")
 	public String addUser(@QueryParam("name") String name, @QueryParam("photo") String photo)
-	{	
-		initializeFirebase();
-		
+	{			
 		User user = new User();
 		user.setName(name);
 		user.setPhoto(photo);
