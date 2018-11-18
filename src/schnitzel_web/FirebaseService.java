@@ -114,7 +114,8 @@ public class FirebaseService
 				  for (DataSnapshot postSnapshot: snapshot.getChildren())
 				  {
 					  Checkpoint checkpoint = postSnapshot.getValue(Checkpoint.class);
-			          allCheckpointInfo += checkpoint.receiveCheckpointInfo() +"| ";
+					  allCheckpointInfo += checkpoint.receiveCheckpointInfo() +"| ";
+					  System.out.println(checkpoint.receiveCheckpointInfo());
 			      }
 			      done.countDown();
 			  }
@@ -173,14 +174,7 @@ public class FirebaseService
 		hunt_map.put("test_hunt", hunt);
 		checkpoint_ref.setValueAsync(hunt_map);	
 		
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		String ret = checkpoints.get(0).getHint() + ", " + checkpoints.get(1).getHint() + ", " + checkpoints.get(2).getHint();
-		return ret;
+		return "added";
 	}
 	     
 	@POST @Path("/score/ties")@Produces("text/plain")      
