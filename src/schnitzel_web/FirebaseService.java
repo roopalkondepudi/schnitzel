@@ -158,13 +158,13 @@ public class FirebaseService
 		h3.setThreshold(86.64);
 		h3.setProgress(3.5);
 		
-		ArrayList<Checkpoint> checkpointList = new ArrayList<Checkpoint>();
-		checkpointList.add(h1);
-		checkpointList.add(h2);
-		checkpointList.add(h3);
+		ArrayList<Checkpoint> checkpoints = new ArrayList<Checkpoint>();
+		checkpoints.add(h1);
+		checkpoints.add(h2);
+		checkpoints.add(h3);
 		
 		Hunt hunt = new Hunt();
-		hunt.setCheckpointList(checkpointList);		
+		hunt.setCheckpointList(checkpoints);		
 		
 		Map<String, Hunt> hunt_map = new HashMap<>();
 		hunt_map.put("test_hunt", hunt);
