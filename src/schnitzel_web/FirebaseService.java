@@ -18,6 +18,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import schnitzeljagd.User;
+
 @Path("/FirebaseService") 
 
 public class FirebaseService
@@ -47,7 +49,7 @@ public class FirebaseService
 		{
 			System.out.println("ioe thrown");
 			e.printStackTrace();
-		}
+		}		
 		return "firebase initialization failure.";
 	}
 
@@ -84,7 +86,7 @@ public class FirebaseService
 	
 	@PUT @Path("/adduser")@Produces("text/plain")
 	public String addUser(@QueryParam("username") String name, @QueryParam("userphoto") String photo)
-	{
+	{		
 		User user = new User();
 		user.setName(name);
 		user.setPhoto(photo);
