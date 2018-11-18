@@ -3,17 +3,26 @@ package schnitzel_web;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.CountDownLatch;
 
 import javax.ws.rs.*;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 @Path("/FirebaseService") 
 
 public class FirebaseService
 {  
+	String profileInfo = "";
 	@POST @Path("/firebase")@Produces("text/plain")
 	public String initializeFirebase()
 	{
@@ -42,12 +51,52 @@ public class FirebaseService
 		return "firebase initialization failure.";
 	}
 
-	@GET @Path("/score/wins")@Produces("text/plain")
-	public int getWins() {return Score.WINS;}
-	     
-	@GET @Path("/score/losses")@Produces("text/plain")
-	public int getLosses() {return Score.LOSSES;}
-	     
+	@GET @Path("/user")@Produces("text/plain")
+	public String getProfileInfo(@QueryParam("name") String username)
+	{
+		// read user class from database
+		DatabaseReference ref = FirebaseDatabase.getInstance()
+			    .getReference("users/" + username);
+		
+		CountDownLatch done = new CountDownLatch(1);
+		ref.addListenerForSingleValueEvent((ValueEventListener) new ValueEventListener()
+		{
+			@Override
+			public void onDataChange(DataSnapshot dataSnapshot) {
+				User new_user = dataSnapshot.getValue(User.class);
+				profileInfo = new_user.getName() + ", " + new_user.getPhoto();
+		        done.countDown();
+			}
+
+			@Override
+			public void onCancelled(DatabaseError error) {
+				System.out.println("There was a problem");
+			}
+		});
+		
+		try {
+			done.await();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return profileInfo;
+	}
+	
+	@PUT @Path("/adduser")@Produces("text/plain")
+	public String addUser(@QueryParam("username") String name, @QueryParam("userphoto") String photo)
+	{
+		User user = new User();
+		user.setName(name);
+		user.setPhoto(photo);
+		
+		DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users/");
+		Map<String, Object> userUpdates = new HashMap<>();
+		userUpdates.put(user.getName(), user);
+		usersRef.updateChildrenAsync(userUpdates);
+		
+		return "user added.";
+	}
+
 	@GET @Path("/score/ties")@Produces("text/plain")
 	public int getTies() {return Score.TIES;}
 	
