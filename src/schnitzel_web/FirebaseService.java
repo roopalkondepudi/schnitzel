@@ -106,10 +106,13 @@ public class FirebaseService
 
 		DatabaseReference ref = FirebaseDatabase.getInstance().getReference("hunts/" + huntname + "/checkpoints");
 		
-		ref.addListenerForSingleValueEvent((ValueEventListener) new ValueEventListener() {
+		ref.addListenerForSingleValueEvent((ValueEventListener) new ValueEventListener()
+		{
 			  @Override
-			  public void onDataChange(DataSnapshot snapshot) {
-				  for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+			  public void onDataChange(DataSnapshot snapshot)
+			  {
+				  for (DataSnapshot postSnapshot: snapshot.getChildren())
+				  {
 					  Checkpoint checkpoint = postSnapshot.getValue(Checkpoint.class);
 			          allCheckpointInfo += checkpoint.receiveCheckpointInfo() +"| ";
 			      }
@@ -117,10 +120,11 @@ public class FirebaseService
 			  }
 
 			  @Override
-			  public void onCancelled(DatabaseError error) {
+			  public void onCancelled(DatabaseError error)
+			  {
 				  System.out.println("There was a problem in getting the checkpoints.");
 			  }
-			});
+		});
 			
 		try {
 			done.await(); //it will wait till the response is received from firebase.
