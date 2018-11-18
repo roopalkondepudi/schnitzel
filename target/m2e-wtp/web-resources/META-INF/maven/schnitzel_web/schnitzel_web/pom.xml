@@ -47,11 +47,7 @@
 	    <artifactId>javaee-web-api</artifactId>
 	    <version>6.0</version>
     <scope>provided</scope></dependency>
-<<<<<<< HEAD
     <!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-admin -->
-=======
-	<!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-admin -->
->>>>>>> 1a2efaaee9e177c5fe442cc5fd2f81e02be6e0b9
 	<dependency>
 	    <groupId>com.google.firebase</groupId>
 	    <artifactId>firebase-admin</artifactId>
