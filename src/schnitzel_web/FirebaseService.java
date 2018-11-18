@@ -83,12 +83,14 @@ public class FirebaseService
 	}
 	
 	@PUT @Path("/adduser")@Produces("text/plain")
-	public String addUser(@QueryParam("username") String name, @QueryParam("userphoto") String photo)
-	{		
+	public String addUser(@QueryParam("name") String name, @QueryParam("photo") String photo)
+	{	
+		initializeFirebase();
+		
 		User user = new User();
 		user.setName(name);
 		user.setPhoto(photo);
-		
+
 		DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users/");
 		Map<String, Object> userUpdates = new HashMap<>();
 		userUpdates.put(user.getName(), user);
