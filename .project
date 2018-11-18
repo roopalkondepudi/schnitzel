@@ -20,6 +20,16 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	</buildSpec>
+	<natures>
+=======
+>>>>>>> ac3e2f337e4540ebb52e81fb3208f7eb867e3c71
+>>>>>>> 1a2efaaee9e177c5fe442cc5fd2f81e02be6e0b9
 		<buildCommand>
 			<name>org.eclipse.m2e.core.maven2Builder</name>
 			<arguments>
@@ -28,6 +38,13 @@
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 963030379d345cfb7ba9e8f0e08a6accf4a914fb
+>>>>>>> ac3e2f337e4540ebb52e81fb3208f7eb867e3c71
+>>>>>>> 1a2efaaee9e177c5fe442cc5fd2f81e02be6e0b9
 		<nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
 		<nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
