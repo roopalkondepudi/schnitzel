@@ -94,7 +94,7 @@ public class FirebaseService
 		userUpdates.put(user.getName(), user);
 		usersRef.updateChildrenAsync(userUpdates);
 		
-		return user.getPhoto();
+		return photo;
 	}
 
 	@GET @Path("/score/ties")@Produces("text/plain")
