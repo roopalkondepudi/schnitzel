@@ -174,7 +174,7 @@ public class FirebaseService
 		checkpoint_ref.setValueAsync(hunt_map);	
 		
 		try {
-			Thread.sleep(2);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
