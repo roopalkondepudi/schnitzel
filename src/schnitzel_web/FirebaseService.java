@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
@@ -18,6 +19,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import schnitzeljagd.User;
 
 @Path("/FirebaseService") 
 
@@ -177,11 +180,41 @@ public class FirebaseService
 		return "added";
 	}
 	     
-	@POST @Path("/score/ties")@Produces("text/plain")      
-	public int increaseTies() { return Score.TIES+=10;}
-	     
-	@POST @Path("/score/losses")@Produces("text/plain")         
-	public int increaseLosses() {return Score.LOSSES++;}
+	public HashMap<String, List<Integer> > getFriendsActivity(User user) {
+		
+		HashMap<String, List<Integer> > friends_act = new HashMap<>();
+		List<User> friends = user.getFriends();
+		CountDownLatch done = new CountDownLatch(1);
+		
+		//read all of a user's friends activites into map
+		for(User friend: friends) {
+			DatabaseReference ref = FirebaseDatabase.getInstance()
+		    .getReference("users/" + friend.getName() + "/activities");
+			ref.addListenerForSingleValueEvent((ValueEventListener) new ValueEventListener() {
+				@Override
+				public void onDataChange(DataSnapshot snapshot) {
+					List<Integer> act_id = new ArrayList<>();
+					for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+						act_id.add(postSnapshot.getValue(Integer.class));
+					}
+					friends_act.put(friend.getName(), act_id);
+			        done.countDown();
+				}
+
+				@Override
+				public void onCancelled(DatabaseError error) {
+					System.out.println("There was a problem");
+				}
+			});
+		}
+		
+		try {
+			done.await();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} 
+		return friends_act;
+	}
 	
 	@GET
 	@Path("/score")
@@ -190,6 +223,21 @@ public class FirebaseService
 	   String pattern = 
 	      "{ \"wins\":\"%s\", \"losses\":\"%s\", \"ties\": \"%s\"}";
 	   return String.format(pattern,  Score.WINS, Score.LOSSES, Score.TIES );   
+	}
+	
+	@PUT @Path("/activity/add")@Produces("text/plain")
+	public void addActivity(User user, Integer act_id)
+	{
+		//add activity to user's act list and push
+		user.addActivity(act_id);
+		
+		DatabaseReference userRef = FirebaseDatabase.getInstance()
+			    .getReference("users/" + user.getName());
+
+		Map<String, Object> userActivityUpdates = new HashMap<>();
+		userActivityUpdates.put("activities", user.getActivities());
+
+		userRef.updateChildrenAsync(userActivityUpdates);
 	}
 	 
 	@PUT
